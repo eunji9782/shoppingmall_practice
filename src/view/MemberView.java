@@ -1,23 +1,26 @@
-package main;
+package view;
 
 import util.ScannerUtil;
-import view.AdminView;
-import view.MemberView;
 
-public class MainPage {
+public class MemberView {
+	
+	
+	//회원으로 들어오면 나오는 화면
+	public void memberView() {
+		
 
-	public static void main(String[] args) {
-
-		System.out.println("──────── 캣 & 도그 쇼핑몰 ────────");
+		System.out.println("──────── 회원 서비스 ────────");
 		System.out.println();
 
 		Loop1: while (true) {
 			System.out.println("    원하시는 메뉴를 선택해주세요!");
 			System.out.println();
 			System.out.println("┌─────────────────────────");
-			System.out.println("│       1. 회원 ");
-			System.out.println("│       2. 관리자");
-			System.out.println("│       3. 종료하기");
+			System.out.println("│       1. 회원가입 ");
+			System.out.println("│       2. 로그인");
+			System.out.println("│       3. 마이페이지");
+			System.out.println("│       4. 쇼핑하기");
+			System.out.println("│       5. 종료하기");
 			System.out.println("└─────────────────────────");
 			System.out.println();
 			System.out.println();
@@ -29,12 +32,14 @@ public class MainPage {
 			switch (menu) {
 
 			case 1:
-				new MemberView().memberView();
-				break; // 회원 뷰
+				break; // 회원가입
 			case 2:
-				new AdminView().adminView();
-				break; // 관리자 뷰
+				break; // 로그인
 			case 3:
+				break; // 마이페이지
+			case 4:
+				break; // 쇼핑하기
+			case 5:
 				System.out.println("프로그램을 종료합니다. 이용해주셔서 감사합니다.");
 				System.out.println("────────────────────────────────────");
 				break Loop1;
@@ -45,5 +50,6 @@ public class MainPage {
 		}
 
 	}
+
 
 }
