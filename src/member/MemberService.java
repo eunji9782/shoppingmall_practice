@@ -32,7 +32,18 @@ public class MemberService {
 		
 		//위의 과정 통과하면 db에 insert
 		int result = new MemberDao().join(conn, mv);
-		return 1;
+		
+		
+		//정상적으로 처리되면 커밋, 아니면 롤백
+		if(result == 1) {
+			JdbcTemplate.commit(conn);
+			System.out.println("커밋 완료");
+		}else {
+			JdbcTemplate.rollback(conn);
+			System.out.println("롤백 완료");
+			
+		}
+		return result;
 		
 		
 	}

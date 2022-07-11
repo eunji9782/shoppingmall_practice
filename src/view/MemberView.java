@@ -1,5 +1,6 @@
 package view;
 
+import member.MemberController;
 import util.ScannerUtil;
 
 public class MemberView {
@@ -32,6 +33,7 @@ public class MemberView {
 			switch (menu) {
 
 			case 1:
+				new MemberController().join();
 				break; // 회원가입
 			case 2:
 				break; // 로그인
