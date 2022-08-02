@@ -36,6 +36,7 @@ public class MemberView {
 				new MemberController().join();
 				break; // 회원가입
 			case 2:
+				new MemberController().login();
 				break; // 로그인
 			case 3:
 				break; // 마이페이지

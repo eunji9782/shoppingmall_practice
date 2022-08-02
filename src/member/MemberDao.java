@@ -2,6 +2,7 @@ package member;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import util.JdbcTemplate;
@@ -32,6 +33,32 @@ public class MemberDao {
 			result = pstmt.executeUpdate(); //insert한 결과 가져오기
 		}catch (SQLException e) {
 			System.out.println("저장 중 문제가 발생하였습니다");
+			e.printStackTrace();
+		}finally {
+			JdbcTemplate.close(pstmt);
+		}
+		
+		return result; //결과 반환
+		
+	}
+
+	public int login(Connection conn, MemberVo mv) {
+		String sql = "SELECT * FROM MEMBERCOPY WHERE ID=? AND PW=?";
+		
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int result = 1;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mv.getId());
+			pstmt.setString(2, mv.getPw());
+			rs = pstmt.executeQuery();
+			if(!rs.next()) {
+				result = -1;
+			}
+		}catch(SQLException e){
+			System.out.println("SQL 문제가 발생하였습니다");
 			e.printStackTrace();
 		}finally {
 			JdbcTemplate.close(pstmt);

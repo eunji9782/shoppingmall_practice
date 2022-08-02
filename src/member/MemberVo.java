@@ -17,6 +17,11 @@ public class MemberVo {
 		this.address = address;
 	}
 
+	public MemberVo(String id, String pw) {
+		this.id = id;
+		this.pw = pw;
+	}
+
 	public String getId() {
 		return id;
 	}

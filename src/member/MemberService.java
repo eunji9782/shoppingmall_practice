@@ -48,4 +48,16 @@ public class MemberService {
 		
 	}
 
+	public int login(MemberVo mv) {
+		if(" ".equals(mv.getId())||" ".equals(mv.getPw())) {
+			return -3;
+		}
+		
+		//위의 과정 통과하면 db로
+		int result = new MemberDao().login(conn, mv);
+		
+		return result;
+		
+	}
+
 }

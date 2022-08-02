@@ -46,4 +46,27 @@ public class MemberController {
 			
 	}
 
+	public void login() {
+			//로그인
+				System.out.println("──────── 로그인 ────────");
+				System.out.println("──────아이디, 비밀번호를 입력해주세요 ────────");
+				System.out.println();
+
+				System.out.print("    아이디 : ");
+				String id = ScannerUtil.sc.nextLine();
+				System.out.print("    비밀번호 : ");
+				String pw = ScannerUtil.sc.nextLine();
+				
+				MemberVo mv = new MemberVo(id, pw);
+				
+				int result = new MemberService().login(mv);
+				
+				if(result == 1) {
+					System.out.println("로그인 성공!");
+					boolean login = true;
+				}
+			
+					
+	}
+
 }
